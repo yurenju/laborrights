@@ -47,7 +47,7 @@
         </div>
         <div class="form-group">
           <label for="" class="control-label">產假天數</label>
-          <div class="form-control-static">{{maternityLeaveResult.value.leaves}} 天</div>
+          <div class="form-control-static">{{maternityLeaveResult.value.leaves}} 周</div>
         </div>
 
         <div class="form-group">
@@ -69,10 +69,10 @@
 
 <script>
 import * as moment from 'moment'
+import { mapState } from 'vuex'
 import { Labor, Gender } from 'labor-standards-tw'
 
 export default {
-  props: ['onboard', 'age', 'gender', 'restDay', 'regularLeave'],
   data () {
     return {
       miscarriage: false,
@@ -81,22 +81,15 @@ export default {
     }
   },
   computed: {
+    ...mapState([
+      'onboard', 'age', 'gender', 'restDay', 'regularLeave', 'monthlySalary'
+    ]),
     labor () {
       const labor = new Labor()
-      if (this.age) {
-        labor.setAge(this.age)
-      }
-      if (this.gender !== undefined || this.gender !== null) {
-        labor.setGender(this.gender)
-      }
-      if (this.onboard) {
-        const onboard = moment(this.onboard)
-        labor.onBoard(onboard.toDate())
-      } else {
-        labor.onBoard(moment('2017-01-01').toDate())
-      }
-      labor.monthlySalary(this.monthlySalary || 24000)
-      labor.setGender(1)
+      labor.setAge(this.age)
+           .setGender(this.gender)
+           .onBoard(this.onboard)
+           .monthlySalary(this.monthlySalary)
 
       return labor
     },
