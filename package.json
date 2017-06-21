@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "labor-standards-tw": "github:g0v/labor-standards-tw",
+    "moment": "^2.18.1",
     "vue": "^2.3.3",
     "vue-router": "^2.3.1"
   },

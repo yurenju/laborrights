@@ -24,30 +24,101 @@
         <div class="form-control-static">{{retirement}}</div>
       </div>
 
+      <div class="female" v-show="female">
+        <hr />
+
+        <div class="miscarriage" v-if="miscarriage">
+          <div class="form-group">
+            <label for="birth">小產日期</label>
+            <input type="date" id="birth" class="form-control" v-model="leaveDate">
+          </div>
+
+          <div class="form-group">
+            <label for="pregnantMonth">懷孕時間（單位為月）</label>
+            <input id="pregnantMonth" type="number" class="form-control" v-model="pregnantMonth">
+          </div>
+        </div>
+        <div class="birth" v-else>
+          <div class="form-group">
+            <label for="birth">產假開始日期</label>
+            <input type="date" id="birth" class="form-control"  v-model="leaveDate">
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label for="" class="control-label">產假天數</label>
+          <div class="form-control-static">{{maternityLeaveResult.value.leaves}} 天</div>
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">產假期間薪資</label>
+          <div class="form-control-static">{{maternityLeaveResult.value.wages}} 元</div>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" v-model="miscarriage"> 小產資訊
+          </label>
+        </div>
+
+      </div>
     </form>
   </div>
 
 </template>
 
 <script>
-import { Labor } from 'labor-standards-tw'
+import * as moment from 'moment'
+import { Labor, Gender } from 'labor-standards-tw'
 
 export default {
-  props: ['labor', 'today'],
+  props: ['onboard', 'age', 'gender', 'restDay', 'regularLeave'],
+  data () {
+    return {
+      miscarriage: false,
+      pregnantMonth: 3,
+      leaveDate: moment().format('YYYY-MM-DD')
+    }
+  },
   computed: {
+    labor () {
+      const labor = new Labor()
+      if (this.age) {
+        labor.setAge(this.age)
+      }
+      if (this.gender !== undefined || this.gender !== null) {
+        labor.setGender(this.gender)
+      }
+      if (this.onboard) {
+        const onboard = moment(this.onboard)
+        labor.onBoard(onboard.toDate())
+      } else {
+        labor.onBoard(moment('2017-01-01').toDate())
+      }
+      labor.monthlySalary(this.monthlySalary || 24000)
+      labor.setGender(1)
+
+      return labor
+    },
     paidLeaves () {
-      const labor = this.labor || new Labor()
-      const today = this.today || new Date()
-      return labor.paidLeaves(today).value.leaves
+      return this.labor.paidLeaves(this.today).value.leaves
     },
     wage () {
-      const labor = this.labor || new Labor()
-      return labor.getHourlyWage() || 150
+      return this.labor.getHourlyWage() || 150
     },
     retirement () {
-      const labor = this.labor || new Labor()
-      const today = this.today || new Date()
-      return labor.retire(today).value.retirement ? '可' : '不可'
+      return this.labor.retire(this.today).value.retirement ? '可' : '不可'
+    },
+    female () {
+      return this.labor.getGender() === Gender.FEMALE
+    },
+    maternityLeaveResult () {
+      if (this.labor.getGender() === Gender.FEMALE) {
+        const leaveDate = new Date(...this.leaveDate.split('-').map(num => parseInt(num)))
+        return this.labor.takeMaternityLeave(leaveDate, this.miscarriage, this.pregnantMonth)
+      } else {
+        return { value: {} }
+      }
     }
   }
 }

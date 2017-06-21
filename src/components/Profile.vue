@@ -3,7 +3,7 @@
     <form>
       <div class="form-group">
         <label for="onboard">到職日</label>
-        <input id="onboard" type="date" class="form-control">
+        <input id="onboard" type="date" class="form-control" v-model="onboard">
       </div>
 
       <div class="form-group">
@@ -13,39 +13,31 @@
 
       <div class="form-group">
         <label for="gender">性別</label>
-        <select name="" id="" class="form-control">
-          <option value="">男</option>
-          <option value="">女</option>
-          <option value="">不指定</option>
+        <select id="gender" class="form-control" v-model="gender">
+          <option v-for="gender in genderOptions" :value="gender.value">{{gender.text}}</option>
         </select>
       </div>
+
+      <div class="form-group">
+        <label for="month-salary">月薪</label>
+        <input type="number" id="month-salary" class="form-control" v-model="monthlySalary">
+      </div>
+
 
       <a class="more-options-toggle collapsed" href="#more-options" data-toggle="collapse">更多選項</a>
 
       <div id="more-options" class="collapse">
         <div class="form-group">
           <label for="rest-day">休息日</label>
-          <select name="" id="" class="form-control">
-            <option value="1">星期一</option>
-            <option value="2">星期二</option>
-            <option value="3">星期三</option>
-            <option value="4">星期四</option>
-            <option value="5">星期五</option>
-            <option value="6">星期六</option>
-            <option value="7">星期日</option>
+          <select id="rest-day" class="form-control" v-model="restDay">
+            <option v-for="day in dayOfWeek" :value="day.value">{{day.text}}</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="regular-leave">例假日</label>
-          <select name="" id="" class="form-control">
-            <option value="1">星期一</option>
-            <option value="2">星期二</option>
-            <option value="3">星期三</option>
-            <option value="4">星期四</option>
-            <option value="5">星期五</option>
-            <option value="6">星期六</option>
-            <option value="7">星期日</option>
+          <select id="regular-leave" class="form-control" v-model="regularLeave">
+            <option v-for="day in dayOfWeek" :value="day.value">{{day.text}}</option>
           </select>
         </div>
       </div>
@@ -57,6 +49,37 @@
     </form>
   </div>
 </template>
+
+<script>
+import { Gender } from 'labor-standards-tw'
+export default {
+  data () {
+    return {
+      onboard: '2017-01-03',
+      age: 20,
+      gender: Gender.UNSPECIFIED,
+      monthlySalary: 24000,
+      genderOptions: [
+        { text: '男', value: Gender.MALE },
+        { text: '女', value: Gender.FEMALE },
+        { text: '不指定', value: Gender.UNSPECIFIED }
+      ],
+      dayOfWeek: [
+        { text: '星期一', value: 1 },
+        { text: '星期二', value: 2 },
+        { text: '星期三', value: 3 },
+        { text: '星期四', value: 4 },
+        { text: '星期五', value: 5 },
+        { text: '星期六', value: 6 },
+        { text: '星期日', value: 7 }
+      ],
+      restDay: 6,
+      regularLeave: 7
+    }
+  }
+}
+</script>
+
 
 <style>
 
