@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -14,13 +14,13 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar-collapse">
+      <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active">
-            <router-link to="/general">一般資訊</router-link>
+            <router-link to="/general" data-toggle="collapse" data-target=".navbar-collapse.in">一般資訊</router-link>
           </li>
           <li>
-            <router-link to="/worktime">工作時間</router-link>
+            <router-link to="/worktime" data-toggle="collapse" data-target=".navbar-collapse">工作時間</router-link>
           </li>
           <li>
             <a href="#">資遣與離職</a>
@@ -28,7 +28,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <router-link to="/profile">編輯基本資料</router-link>
+            <router-link to="/profile" data-toggle="collapse" data-target=".navbar-collapse">編輯基本資料</router-link>
           </li>
         </ul>
       </div>
