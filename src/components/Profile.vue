@@ -3,32 +3,24 @@
     <form>
       <div class="form-group">
         <label for="onboard">到職日</label>
-        <input id="onboard" type="date" class="form-control"
-               :value="onboard"
-               @input="setProperties({onboard: $event.target.value})">
+        <input id="onboard" type="date" class="form-control" v-model="onboard">
       </div>
 
       <div class="form-group">
         <label for="age">年齡</label>
-        <input type="number" id="age" class="form-control"
-               :value="age"
-               @input="setProperties({age: Number($event.target.value)})">
+        <input type="number" id="age" class="form-control" v-model.number="age">
       </div>
 
       <div class="form-group">
         <label for="gender">性別</label>
-        <select id="gender" class="form-control"
-                :value="gender"
-                @input="setProperties({gender: Number($event.target.value)})">
+        <select id="gender" class="form-control" v-model.number="gender">
           <option v-for="gender in genderOptions" :value="gender.value">{{gender.text}}</option>
         </select>
       </div>
 
       <div class="form-group">
         <label for="month-salary">月薪</label>
-        <input type="number" id="month-salary" class="form-control"
-               :value="monthlySalary"
-               @input="setProperties({monthlySalary: Number($event.target.value)})">
+        <input type="number" id="month-salary" class="form-control" v-model.number="monthlySalary">
       </div>
 
 
@@ -38,8 +30,7 @@
         <div class="form-group">
           <label for="rest-day">休息日</label>
           <select id="rest-day" class="form-control"
-                  :value="restDay"
-                  @input="setProperties({restDay: Number($event.target.value)})">
+                  v-model.number="restDay">
             <option v-for="day in dayOfWeek" :value="day.value">{{day.text}}</option>
           </select>
         </div>
@@ -47,15 +38,14 @@
         <div class="form-group">
           <label for="regular-leave">例假日</label>
           <select id="regular-leave" class="form-control"
-                  :value="regularLeave"
-                  @input="setProperties({regularLeave: Number($event.target.value)})">
+                  v-model.number="regularLeave">
             <option v-for="day in dayOfWeek" :value="day.value">{{day.text}}</option>
           </select>
         </div>
       </div>
 
       <div class="text-center">
-        <router-link class="btn btn-primary btn-lg" to="/general">前往一般資訊</router-link>
+        <button class="btn btn-primary btn-lg" @click="save">儲存</button>
       </div>
 
     </form>
@@ -63,12 +53,18 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
 import { Gender } from 'labor-standards-tw'
 
 export default {
   data () {
+    const { onboard, age, gender, monthlySalary, restDay, regularLeave } = this.$store.state
     return {
+      onboard,
+      age,
+      gender,
+      monthlySalary,
+      restDay,
+      regularLeave,
       genderOptions: [
         { text: '男', value: Gender.MALE },
         { text: '女', value: Gender.FEMALE },
@@ -85,10 +81,17 @@ export default {
       ]
     }
   },
-  computed: mapState([
-    'onboard', 'age', 'gender', 'monthlySalary', 'restDay', 'regularLeave'
-  ]),
-  methods: mapMutations(['setProperties'])
+  methods: {
+    save () {
+      const properties = {}
+      const fields = ['onboard', 'age', 'gender', 'monthlySalary', 'restDay', 'regularLeave']
+      fields.forEach(key => {
+        properties[key] = this[key]
+      })
+      this.$store.commit('setProperties', properties)
+      this.$router.push('/general')
+    }
+  }
 }
 </script>
 
