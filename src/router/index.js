@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Welcome from '@/components/Welcome'
 import Profile from '@/components/Profile'
 import General from '@/components/General'
+import Worktime from '@/components/Worktime'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/general',
       name: 'General',
       component: General
+    },
+    {
+      path: '/worktime',
+      name: 'Worktime',
+      component: Worktime
     }
   ]
 })

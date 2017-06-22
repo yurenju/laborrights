@@ -11,7 +11,7 @@ export default new Vuex.Store({
     onboard: '2017-01-03',
     gender: Gender.UNSPECIFIED,
     restDay: 6,
-    regularLeave: 7
+    regularLeave: 0
   },
   mutations: {
     setProperties (state, payload) {

@@ -10,7 +10,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">勞工權益</a>
+        <a class="navbar-brand" href="#">勞工權益 <span class="label label-info">beta</span></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,7 +20,7 @@
             <router-link to="/general">一般資訊</router-link>
           </li>
           <li>
-            <a href="#">工作時間</a>
+            <router-link to="/worktime">工作時間</router-link>
           </li>
           <li>
             <a href="#">資遣與離職</a>

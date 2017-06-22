@@ -77,7 +77,7 @@ export default {
         { text: '星期四', value: 4 },
         { text: '星期五', value: 5 },
         { text: '星期六', value: 6 },
-        { text: '星期日', value: 7 }
+        { text: '星期日', value: 0 }
       ]
     }
   },
