@@ -28,6 +28,10 @@
           <li>
             <router-link to="/termination" data-toggle="collapse" data-target=".navbar-collapse.in">資遣與離職</router-link>
           </li>
+          <li>
+            <a href="https://goo.gl/forms/4dRTCJbWnkaiWZ3v2" target="_blank">意見回饋</a>
+          </li>
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
