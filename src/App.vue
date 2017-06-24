@@ -15,6 +15,11 @@ export default {
 </script>
 
 <style>
-#app {
+body {
+  font-family: inherit;
+}
+
+#app, #app .form-control {
+  font-size: 16px;
 }
 </style>
