@@ -16,8 +16,11 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active">
+          <li>
             <router-link to="/general" data-toggle="collapse" data-target=".navbar-collapse.in">一般資訊</router-link>
+          </li>
+          <li v-if="showFemale">
+            <router-link to="/female" data-toggle="collapse" data-target=".navbar-collapse.in">產假資訊</router-link>
           </li>
           <li>
             <router-link to="/worktime" data-toggle="collapse" data-target=".navbar-collapse">工作時間</router-link>
@@ -39,6 +42,15 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { Gender } from 'labor-standards-tw'
+
 export default {
+  computed: {
+    ...mapState(['gender']),
+    showFemale () {
+      return this.gender === Gender.FEMALE
+    }
+  }
 }
 </script>

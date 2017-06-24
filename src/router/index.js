@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Welcome from '@/components/Welcome'
 import Profile from '@/components/Profile'
+import Female from '@/components/Female'
 import General from '@/components/General'
 import Worktime from '@/components/Worktime'
 import Termination from '@/components/Termination'
@@ -19,6 +20,11 @@ export default new Router({
       path: '/profile',
       name: 'Profile',
       component: Profile
+    },
+    {
+      path: '/female',
+      name: 'Female',
+      component: Female
     },
     {
       path: '/general',
