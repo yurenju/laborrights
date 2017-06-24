@@ -4,6 +4,7 @@ import Welcome from '@/components/Welcome'
 import Profile from '@/components/Profile'
 import General from '@/components/General'
 import Worktime from '@/components/Worktime'
+import Termination from '@/components/Termination'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/worktime',
       name: 'Worktime',
       component: Worktime
+    },
+    {
+      path: '/termination',
+      name: 'Termination',
+      component: Termination
     }
   ]
 })
