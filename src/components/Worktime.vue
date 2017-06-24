@@ -60,7 +60,7 @@
             <div class="col-xs-3 result-label">狀態</div>
             <div class="col-xs-9">{{legal}}</div>
           </div>
-          <div class="row">
+          <div class="row" v-if="result.value.overtimePay">
             <div class="col-xs-3 result-label">加班費</div>
             <div class="col-xs-9">{{parseInt(result.value.overtimePay)}} 元</div>
           </div>
@@ -170,8 +170,12 @@ export default {
       }
 
       worktime.add(this.startDate.toDate(), this.workHours, dayType)
-      const result = worktime.overtimePay(this.accident, this.agreed)
-      return result
+      const validation = worktime.validate()
+      if (!validation.value.legal) {
+        return validation
+      } else {
+        return worktime.overtimePay(this.accident, this.agreed)
+      }
     },
     legal () {
       return this.result.value.legal ? '合法' : '違法'
@@ -184,7 +188,7 @@ export default {
     formatArticle (violation) {
       let output = `${violation.lawTitle} 第 ${violation.id} 條`
       if (violation.paragraph !== null && violation.paragraph !== undefined) {
-        output += ` 第 ${violation.paragraph} 項`
+        output += ` 第 ${violation.paragraph + 1} 項`
       }
       return output
     },

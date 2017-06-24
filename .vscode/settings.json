@@ -1,0 +1,9 @@
+// 將您的設定放入此檔案中以覆寫預設值和使用者設定。
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/dist": true,
+    "test/unit/coverage": true
+  }
+}

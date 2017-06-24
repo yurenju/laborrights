@@ -17,7 +17,7 @@
       </div>
       <div class="form-group">
         <label for="" class="control-label">計算加班費用的平均時薪</label>
-        <div class="form-control-static">{{wage}} 元</div>
+        <div class="form-control-static">{{wages}} 元</div>
       </div>
       <div class="form-group">
         <label for="" class="control-label">是否可申請退休</label>
@@ -49,8 +49,8 @@ export default {
     paidLeaves () {
       return this.labor.paidLeaves(this.today).value.leaves
     },
-    wage () {
-      return this.labor.getHourlyWage() || 150
+    wages () {
+      return this.labor.getHourlyWages() || 150
     },
     retirement () {
       return this.labor.retire(this.today).value.retirement ? '可' : '不可'
