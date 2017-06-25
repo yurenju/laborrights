@@ -16,13 +16,23 @@
       </div>
 
       <div class="form-group">
-        <label for="start" class="control-label">上班時間</label>
-        <input type="text" id="start" class="form-control" v-model="start">
+        <label class="control-label">上班時間</label>
+        <div class="input-group col-xs-7">
+          <input type="number" class="form-control" v-model.number="startHour">
+          <span class="input-group-addon">時</span>
+          <input class="form-control" type="number" v-model.number="startMinute">
+          <span class="input-group-addon">分</span>
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="end" class="control-label">下班時間</label>
-        <input type="text" id="end" class="form-control" v-model="end">
+        <label class="control-label">下班時間</label>
+        <div class="input-group col-xs-7">
+          <input type="number" class="form-control" v-model.number="endHour">
+          <span class="input-group-addon">時</span>
+          <input class="form-control" type="number" v-model.number="endMinute">
+          <span class="input-group-addon">分</span>
+        </div>
       </div>
 
       <div class="checkbox">
@@ -76,8 +86,10 @@ export default {
       nextDay: false,
       agreed: true,
       accident: false,
-      start: '8:00',
-      end: '18:00',
+      startHour: 8,
+      startMinute: 0,
+      endHour: 18,
+      endMinute: 0,
       dayOfWeek: [
         { text: '星期一', value: 1 },
         { text: '星期二', value: 2 },
@@ -104,17 +116,15 @@ export default {
     },
     startDate () {
       const date = moment(new Date(2017, 5, 11 + this.day))
-      const [startHour, startMinute] = this.start.split('-').map(num => parseInt(num))
       const start = date.clone()
-      start.hour(startHour).minute(startMinute)
+      start.hour(this.startHour).minute(this.startMinute)
 
       return start
     },
     endDate () {
       const date = moment(new Date(2017, 5, 11 + this.day))
-      const [endHour, endMinute] = this.end.split('-').map(num => parseInt(num))
       const end = date.clone()
-      end.hour(endHour).minute(endMinute)
+      end.hour(this.endHour).minute(this.endMinute)
 
       if (this.nextDay) {
         end.add(1, 'days')
