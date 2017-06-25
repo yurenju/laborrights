@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
+
 import { Gender } from 'labor-standards-tw'
 
 Vue.use(Vuex)
@@ -19,5 +21,6 @@ export default new Vuex.Store({
         state[key] = payload[key]
       })
     }
-  }
+  },
+  plugins: [createPersistedState()]
 })
