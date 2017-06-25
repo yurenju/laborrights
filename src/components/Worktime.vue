@@ -5,7 +5,7 @@
       <div class="form-group">
         <label for="day" class="control-label">哪天</label>
         <select id="day" class="form-control" v-model="day">
-          <option v-for="day in dayOfWeek" :value="day.value">{{day.text}}</option>
+          <option v-for="(day, i) in dayOfWeek" :key="i" :value="day.value">{{day.text}}</option>
         </select>
       </div>
 
@@ -53,47 +53,7 @@
         </div>
       </div>
 
-      <div class="panel panel-info result">
-        <div class="panel-heading">結果</div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-xs-3 result-label">狀態</div>
-            <div class="col-xs-9">{{legal}}</div>
-          </div>
-          <div class="row" v-if="result.value.overtimePay">
-            <div class="col-xs-3 result-label">加班費</div>
-            <div class="col-xs-9">{{parseInt(result.value.overtimePay)}} 元</div>
-          </div>
-
-          <div class="violations" v-if="!result.value.legal">
-            <div class="row">
-              <div class="col-xs-3 result-label">違反法條</div>
-              <div class="col-xs-9">
-                <ul class="articles">
-                  <li v-for="violation in result.violations">
-                    {{formatArticle(violation)}}
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-3 result-label">罰則</div>
-              <div class="col-xs-9">
-                <ul class="penalties">
-                  <li v-for="penalty in penalties">
-                    {{formatPenalty(penalty)}}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div v-if="!result.value.legal" class="alert alert-danger" role="alert">
-        此加班情況為公司違法加班，請向公司所在地的勞動局檢舉。
-        </div>
-
-
+      <result :result="result" :penalties="penalties"></result>
     </form>
   </div>
 </template>
@@ -101,9 +61,14 @@
 <script>
 import { mapState } from 'vuex'
 import * as moment from 'moment'
+
+import Result from '@/components/Result'
 import { Labor, WorkTime, Duration, Day } from 'labor-standards-tw'
 
 export default {
+  components: {
+    Result
+  },
   data () {
     return {
       day: 1,
@@ -177,35 +142,8 @@ export default {
         return worktime.overtimePay(this.accident, this.agreed)
       }
     },
-    legal () {
-      return this.result.value.legal ? '合法' : '違法'
-    },
     penalties () {
       return this.result.violations.map(v => v.penalize())
-    }
-  },
-  methods: {
-    formatArticle (violation) {
-      let output = `${violation.lawTitle} 第 ${violation.id} 條`
-      if (violation.paragraph !== null && violation.paragraph !== undefined) {
-        output += ` 第 ${violation.paragraph + 1} 項`
-      }
-      return output
-    },
-    formatPenalty (penalty) {
-      return penalty.possibilities.map(p => {
-        let output = ''
-        if (p.fine) {
-          output += '罰款'
-          if (p.fine.min) {
-            output += ` ${p.fine.min} 元以上`
-          }
-          if (p.fine.max) {
-            output += ` ${p.fine.max} 元以下`
-          }
-        }
-        return output
-      }).join('或 <br>')
     }
   }
 }
@@ -224,18 +162,5 @@ a.more-options-toggle {
 
 .more-options-toggle::before {
   content: "▼ ";
-}
-
-.result {
-  margin-top: 20px;
-}
-
-.result-label {
-  font-weight: bold;
-}
-
-.articles, .penalties {
-  padding-left: 0;
-  list-style: none;
 }
 </style>
