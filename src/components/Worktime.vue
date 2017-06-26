@@ -26,6 +26,14 @@
       </div>
 
       <div class="form-group">
+        <label for="" class="control-label">休息時間，如午休等</label>
+        <div class="input-group col-xs-4">
+          <input type="number" class="form-control" v-model.number="restHours">
+          <span class="input-group-addon">小時</span>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label class="control-label">下班時間</label>
         <div class="input-group col-xs-7">
           <input type="number" class="form-control" v-model.number="endHour">
@@ -86,6 +94,7 @@ export default {
       nextDay: false,
       agreed: true,
       accident: false,
+      restHours: 1.5,
       startHour: 8,
       startMinute: 0,
       endHour: 18,
@@ -112,7 +121,7 @@ export default {
       return labor
     },
     workHours () {
-      return this.endDate.diff(this.startDate, 'hours', true)
+      return this.endDate.diff(this.startDate, 'hours', true) - this.restHours
     },
     startDate () {
       const date = moment(new Date(2017, 5, 11 + this.day))
