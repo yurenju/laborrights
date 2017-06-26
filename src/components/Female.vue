@@ -58,7 +58,7 @@ export default {
       labor.setAge(this.age)
         .setGender(this.gender)
         .onBoard(this.onboard)
-        .monthlySalary(this.monthlySalary)
+        .setMonthlySalary(this.monthlySalary)
 
       return labor
     },

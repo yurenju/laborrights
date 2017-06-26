@@ -54,7 +54,7 @@ export default {
     result () {
       const labor = new Labor()
                         .onBoard(moment(this.onboard).toDate())
-                        .monthlySalary(this.monthlySalary)
+                        .setMonthlySalary(this.monthlySalary)
       return labor.beDismissed(moment(this.endDate).toDate())
     },
     noticeDate () {

@@ -107,7 +107,7 @@ export default {
       const labor = new Labor()
       labor.setAge(this.age)
            .setGender(this.gender)
-           .monthlySalary(this.monthlySalary)
+           .setMonthlySalary(this.monthlySalary)
 
       return labor
     },
