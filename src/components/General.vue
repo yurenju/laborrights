@@ -24,7 +24,7 @@
       </div>
     </form>
 
-    <result :result="result" :penalties="penalties"></result>
+    <result v-if="!result.value.legal" :result="result" :penalties="penalties"></result>
   </div>
 
 </template>
