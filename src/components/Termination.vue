@@ -26,7 +26,7 @@
 
     </form>
 
-    <div class="alert alert-info" role="alert">目前資遣費的算法是依照 <a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=N0030020&FLNO=12" target="_blank">勞工退休金條例第 12 條</a>，而不是依照 <a href="
+    <div class="alert alert-info" role="alert">目前資遣費的算法是依照 <a href="http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=N0030020&FLNO=12" target="_blank">勞工退休金條例第 12 條</a> 新制計算方法，而不是依照 <a href="
   http://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=N0030001&FLNO=17" target="_blank">勞動基準法第 17 條</a>。</div>
 
   </div>
