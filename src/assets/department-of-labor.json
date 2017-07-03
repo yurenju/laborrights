@@ -1,0 +1,118 @@
+{
+  "cities": [
+    {
+      "city": "臺北市",
+      "name": "臺北市政府勞動局",
+      "website": "http://bola.gov.taipei/",
+      "phone": "1999 (外縣市 02-27208889) 分機 7015-7018、3325、3327"
+    },
+    {
+      "city": "新北市" ,
+      "name": "新北市政府勞工局",
+      "website": "http://ilabor.ntpc.gov.tw/",
+      "phone": "02-29603456 分機 6528、6529、6536"
+    },
+    {
+      "city": "桃園市",
+      "name": "桃園市政府勞動局",
+      "website": "http://lhrb.tycg.gov.tw/",
+      "phone": "03-3322101 分機 6808 至 6809"
+    },
+    {
+      "city": "臺中市",
+      "name": "臺中市政府勞工局",
+      "website": "http://www.labor.taichung.gov.tw/",
+      "phone": "04-2228-9111 分機 35099"
+    },
+    {
+      "city": "臺南市",
+      "name": "臺南市政府勞工局",
+      "website": "http://www.tainan.gov.tw/labor/",
+      "phone": "06-6320310"
+    },
+    {
+      "city": "高雄市",
+      "name": "高雄市政府勞工局",
+      "website": "http://labor.kcg.gov.tw/",
+      "phone": "07-8124651 分機 211, 212, 231, 243"
+    },
+    {
+      "city": "基隆市",
+      "name": "基隆市政府社會處勞資關係科",
+      "website": "http://social.klcg.gov.tw/laborer_srv/index.php?Kid=13&Mid=26",
+      "phone": "02-24287801 (1999基隆市政府社會處勞資關係科)"
+    },
+    {
+      "city": "新竹市",
+      "name": "新竹市政府勞工處",
+      "website": "http://dep-labor.hccg.gov.tw/labor/ch/index.jsp",
+      "phone": "03-5320740, 03-5352087"
+    },
+    {
+      "city": "嘉義市",
+      "name": "嘉義市政府社會處勞資關係科",
+      "website": "http://www.chiayi.gov.tw/web/social/allpage.asp?sn=20061206154959",
+      "phone": "05-2254321 分機 154、159, 05-2254185"
+    },
+    {
+      "city": "新竹縣" ,
+      "name": "新竹縣政府勞工處",
+      "website": "http://labor.hsinchu.gov.tw/",
+      "phone": "03-5518101 分機 3051 ~ 3053, 3055 ~ 3059, 3061"
+    },
+    {
+      "city": "苗栗縣",
+      "name": "苗栗縣政府勞工及青年發展處",
+      "website": "http://www.miaoli.gov.tw/labor_youth/",
+      "phone": "037-357040"
+    },
+    {
+      "city": "彰化縣",
+      "name": "彰化縣政府勞工處",
+      "website": "http://labor.chcg.gov.tw/00home/index3.asp",
+      "phone": "04-7532521"
+    },
+    {
+      "city": "南投縣",
+      "name": "南投縣政府社會及勞動處",
+      "website": "http://www.nantou.gov.tw/big5/index.asp?dptid=376480000AU130000",
+      "phone": "049-2246823, 049-2247236, 049-2204776"
+    },
+    {
+      "city": "雲林縣",
+      "name": "雲林縣政府勞工處",
+      "website": "http://www4.yunlin.gov.tw/labor/",
+      "phone": "05-5522856 分機 9"
+    },
+    {
+      "city": "嘉義縣",
+      "name": "嘉義縣社會局",
+      "website": "http://www.sabcc.gov.tw/index.aspx",
+      "phone": "05-3620900 分機 5100, 5109, 1120"
+    },
+    {
+      "city": "屏東縣",
+      "name": "屏東縣政府勞工處",
+      "website": "http://www.pthg.gov.tw/planlab/Default.aspx",
+      "phone": "08-7558048 分機 30"
+    },
+    {
+      "city": "宜蘭縣",
+      "name": "宜蘭縣政府勞工處",
+      "website": "http://labor.e-land.gov.tw/Default.aspx",
+      "phone": "03-9251000 分機 1730, 1731, 1732, 1735"
+    },
+    {
+      "city": "臺東縣",
+      "name": "臺東縣政府社會處",
+      "website": "http://taisoc.taitung.gov.tw/WebSite/Page/index.aspx",
+      "phone": "089-328254"
+    },
+    {
+      "city": "澎湖縣",
+      "name": "澎湖縣政府社會處",
+      "website": "https://www.penghu.gov.tw/society/",
+      "phone": "06-9268391"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import Female from '@/components/Female'
 import General from '@/components/General'
 import Worktime from '@/components/Worktime'
 import Termination from '@/components/Termination'
+import Contact from '@/components/Contact'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/termination',
       name: 'Termination',
       component: Termination
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact
     }
   ]
 })
