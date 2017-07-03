@@ -1,0 +1,54 @@
+{
+  "unions": [
+    {
+      "name": "台大工會",
+      "website": "https://ntu-laborunion.blogspot.tw/",
+      "facebook": "https://www.facebook.com/ntu.laborunion/"
+    },
+    {
+      "name": "台灣電子電機資訊產業工會",
+      "website": "http://www.tueeit.org.tw/",
+      "facebook": "https://www.facebook.com/TUEEIT/"
+    },
+    {
+      "name": "桃園市電子業產業工會",
+      "facebook": "https://www.facebook.com/groups/520904158059203/"
+    },
+    {
+      "name": "臺灣鐵路產業工會",
+      "website": "http://www.twru.org/",
+      "facebook": "https://www.facebook.com/pg/taiwanrailwayunion/"
+    },
+    {
+      "name": "桃園市產業總工會",
+      "facebook": "https://www.facebook.com/groups/165307556902302/"
+    },
+    {
+      "name": "台北市產業總工會",
+      "facebook": "https://www.facebook.com/%E5%8F%B0%E5%8C%97%E5%B8%82%E7%94%A2%E6%A5%AD%E7%B8%BD%E5%B7%A5%E6%9C%83-255111244546600/"
+    },
+    {
+      "name": "台南市產業總工會",
+      "facebook": "https://www.facebook.com/tainan.worker/"
+    },
+    {
+      "name": "新竹縣產業總工會",
+      "facebook": "https://www.facebook.com/%E6%96%B0%E7%AB%B9%E7%B8%A3%E7%94%A2%E6%A5%AD%E7%B8%BD%E5%B7%A5%E6%9C%83-408542919342381/"
+    },
+    {
+      "name": "台灣基層護理產業工會",
+      "website": "https://powerfulnurses.wordpress.com/",
+      "facebook": "https://www.facebook.com/powerful.nurses/"
+    },
+    {
+      "name": "桃園市空服員職業工會",
+      "website": "https://tfautfau.blogspot.tw/",
+      "facebook": "https://www.facebook.com/TFAUTFAU/"
+    },
+    {
+      "name": "台灣桃園市機師工會",
+      "website": "http://www.pilotunion.org.tw/",
+      "facebook": "https://www.facebook.com/pilotunion/"
+    }
+  ]
+}
