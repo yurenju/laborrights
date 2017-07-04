@@ -1,18 +1,18 @@
 require('chromedriver')
-const seleniumWebdriver = require('selenium-webdriver');
-const {Options} = require('selenium-webdriver/chrome');
-const { defineSupportCode } = require('cucumber');
+const seleniumWebdriver = require('selenium-webdriver')
+const {Options} = require('selenium-webdriver/chrome')
+const { defineSupportCode } = require('cucumber')
 
-function CustomWorld() {
+function CustomWorld () {
   const options = new Options()
   options.addArguments('--headless')
   this.driver = new seleniumWebdriver.Builder()
     .forBrowser('chrome')
     .setChromeOptions(options)
-    .build();
+    .build()
 }
 
-defineSupportCode(function ({Given, When, Then, setWorldConstructor }) {
+defineSupportCode(function ({ Given, When, Then, setWorldConstructor }) {
   setWorldConstructor(CustomWorld)
 
   Given('使用者進入網站', function () {
