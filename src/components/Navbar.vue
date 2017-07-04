@@ -38,7 +38,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <router-link to="/profile" data-toggle="collapse" data-target=".navbar-collapse">編輯基本資料</router-link>
+            <router-link to="/profile" data-toggle="collapse" data-target=".navbar-collapse.in">編輯基本資料</router-link>
           </li>
         </ul>
       </div>

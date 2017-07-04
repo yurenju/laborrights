@@ -3,7 +3,6 @@ process.env.NODE_ENV = 'testing'
 var server = require('../../build/dev-server.js')
 
 server.ready.then(() => {
-
   var spawn = require('cross-spawn')
   var runner = spawn('./node_modules/.bin/cucumberjs', [], { stdio: 'inherit' })
 

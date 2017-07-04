@@ -5,7 +5,7 @@
       <div class="form-group">
         <label for="day" class="control-label">哪天</label>
         <select id="day" class="form-control" v-model="day">
-          <option v-for="(day, i) in dayOfWeek" :key="i" :value="day.value">{{day.text}}</option>
+          <option v-for="(day, i) in dayOfWeek" :data-name="day.text" :key="i" :value="day.value">{{formatDay(day)}}</option>
         </select>
       </div>
 
@@ -108,6 +108,19 @@ export default {
         { text: '星期六', value: 6 },
         { text: '星期日', value: 0 }
       ]
+    }
+  },
+  methods: {
+    formatDay (day) {
+      let text = day.text
+
+      if (this.restDay === day.value) {
+        text += '（休息日）'
+      } else if (this.regularLeave === day.value) {
+        text += '（例假日）'
+      }
+
+      return text
     }
   },
   computed: {

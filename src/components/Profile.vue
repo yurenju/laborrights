@@ -14,7 +14,7 @@
       <div class="form-group">
         <label for="gender">性別</label>
         <select id="gender" class="form-control" v-model.number="gender">
-          <option v-for="gender in genderOptions" :value="gender.value">{{gender.text}}</option>
+          <option v-for="gender in genderOptions" :key="gender.value" :value="gender.value">{{gender.text}}</option>
         </select>
       </div>
 
@@ -29,23 +29,23 @@
       <div id="more-options" class="collapse">
         <div class="form-group">
           <label for="rest-day">休息日</label>
-          <select id="rest-day" class="form-control"
+          <select data-name="休息日" id="rest-day" class="form-control"
                   v-model.number="restDay">
-            <option v-for="day in dayOfWeek" :value="day.value">{{day.text}}</option>
+            <option v-for="day in dayOfWeek" :data-name="day.text" :key="day.value" :value="day.value">{{day.text}}</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="regular-leave">例假日</label>
-          <select id="regular-leave" class="form-control"
+          <select data-name="例假日" id="regular-leave" class="form-control"
                   v-model.number="regularLeave">
-            <option v-for="day in dayOfWeek" :value="day.value">{{day.text}}</option>
+            <option v-for="day in dayOfWeek" :data-name="day.text" :key="day.value" :value="day.value">{{day.text}}</option>
           </select>
         </div>
       </div>
 
       <div class="text-center">
-        <button class="btn btn-primary btn-lg" @click="save">儲存</button>
+        <a class="btn btn-primary btn-lg" @click="save">儲存</a>
       </div>
 
     </form>

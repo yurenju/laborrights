@@ -1,12 +1,7 @@
-const { Builder, By, until } = require('selenium-webdriver');
-const { defineSupportCode } = require('cucumber');
+const { By, until } = require('selenium-webdriver')
+const { defineSupportCode } = require('cucumber')
 
 defineSupportCode(function ({ Given, When, Then }) {
-  Given('點選 {stringInDoubleQuotes} 連結', function (linkText) {
-    return this.driver.findElement(By.linkText(linkText))
-                      .then(element => element.click())
-  })
-
   Then('應該出現工會列表', function () {
     return this.driver.wait(until.elementLocated(By.className('unions-selector')))
   })
