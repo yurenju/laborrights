@@ -11,6 +11,10 @@
         <div class="col-xs-4 result-label">加班費</div>
         <div class="col-xs-8">{{parseInt(result.value.overtimePay)}} 元</div>
       </div>
+      <div class="row extra-leave" v-if="result.value.extraLeave">
+        <div class="col-xs-4 result-label">補休</div>
+        <div class="col-xs-8">需額外補修</div>
+      </div>
 
       <div class="violations" v-if="!result.value.legal">
         <div class="row">

@@ -4,7 +4,7 @@
 
       <div class="form-group">
         <label for="day" class="control-label">哪天</label>
-        <select id="day" class="form-control" v-model="day">
+        <select data-name="日期" id="day" class="form-control" v-model="day">
           <option v-for="(day, i) in dayOfWeek" :data-name="day.text" :key="i" :value="day.value">{{formatDay(day)}}</option>
         </select>
       </div>
@@ -66,7 +66,7 @@
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" v-model="accident"> 當天是否有天災、事變或突發事件
+            <input type="checkbox" v-model="accident" id="accident"> 當天是否有天災、事變或突發事件
           </label>
         </div>
       </div>
