@@ -23,7 +23,7 @@
             <router-link to="/female" data-toggle="collapse" data-target=".navbar-collapse.in">產假資訊</router-link>
           </li>
           <li>
-            <router-link to="/worktime" data-toggle="collapse" data-target=".navbar-collapse">工作時間</router-link>
+            <router-link to="/worktime" data-toggle="collapse" data-target=".navbar-collapse.in">工作時間</router-link>
           </li>
           <li>
             <router-link to="/termination" data-toggle="collapse" data-target=".navbar-collapse.in">資遣與離職</router-link>
