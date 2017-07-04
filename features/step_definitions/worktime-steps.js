@@ -2,7 +2,7 @@ const { By, until } = require('selenium-webdriver')
 const { defineSupportCode } = require('cucumber')
 
 defineSupportCode(function ({ Given, When, Then }) {
-  Given('點選當天是否有天災、事變或突發事件', function () {
+  When('點選當天是否有天災、事變或突發事件', function () {
     return this.driver.findElement(By.css('input#accident')).click()
   })
 
