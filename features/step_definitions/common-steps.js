@@ -13,8 +13,7 @@ defineSupportCode(function ({ Given, When, Then }) {
 
     if (linkText === '更多選項') {
       promise.then(() => {
-        this.driver.sleep(350) // bootstrap default transition time
-        return this.driver.wait(until.elementIsVisible(this.driver.findElement(By.css('#more-options'))))
+        return this.driver.wait(until.elementIsVisible(this.driver.findElement(By.css('#more-options div:last-of-type'))))
       })
     }
 

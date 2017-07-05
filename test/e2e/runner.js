@@ -4,7 +4,8 @@ var server = require('../../build/dev-server.js')
 
 server.ready.then(() => {
   var spawn = require('cross-spawn')
-  var runner = spawn('./node_modules/.bin/cucumberjs', [], { stdio: 'inherit' })
+  var opts = process.argv.slice(2)
+  var runner = spawn('./node_modules/.bin/cucumberjs', opts, { stdio: 'inherit' })
 
   runner.on('exit', function (code) {
     server.close()
