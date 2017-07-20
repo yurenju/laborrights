@@ -91,7 +91,7 @@ const unions = require('../assets/unions').unions
 export default {
   data () {
     return {
-      cities,
+      // cities,
       unions,
       selectedCity: cities[0],
       selectedUnion: unions[0]
