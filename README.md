@@ -1,10 +1,14 @@
-# labor rights
+# Labor Rights in Taiwan Mobile Website
+
+A mobile website to quickly understand your labor rights. you can give some context like age, gender and your on board date then get your retirement date, overtime wages, severance pay and maternity leaves and wages.
 
 勞工權益 -- 用來快速了解勞工自身權益的 Mobile website。
 
 身為勞工，我們常常不知道自身的權益，加班費該用怎樣的時薪計算、女性的夜間工作時間限制、休息日與例假日到底可不可以加班，甚至被資遣了都不知道自身有什麼權益。這個網站希望可以透過填入一些條件便可以開始了解自己的權益。
 
 http://yurenju.github.io/laborrights/
+
+![DEMO gif](http://i.imgur.com/dJ2Jh3g.gif)
 
 # 參與討論與開發
 
